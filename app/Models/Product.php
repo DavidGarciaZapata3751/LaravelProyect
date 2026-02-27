@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Http\Request;
+
 
 class Product extends Model
 {
@@ -20,6 +22,13 @@ class Product extends Model
      */
     protected $fillable = ['name', 'price'];
 
+    public function validate(Request $request): void
+    {
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+        ]);
+    }
     public function getId(): int
     {
         return $this->attributes['id'];

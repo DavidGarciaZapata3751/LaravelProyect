@@ -1,14 +1,14 @@
 @extends('layouts.app')
-@section('title', $title)
-@section('subtitle', $subtitle)
+@section('title', $viewData["title"])
+@section('subtitle', $viewData["subtitle"])
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-lg-4 ms-auto">
-            <p class="lead">{{ $number }}</p>
+            <p class="lead">Phone: {{ $viewData["number"] }}</p>
         </div>
         <div class="col-lg-4 me-auto">
-            <p class="lead">{{ $author }}</p>
+            <p class="lead">Developed by: {{ $viewData["author"] }}</p>
         </div>
     </div>
 </div>
